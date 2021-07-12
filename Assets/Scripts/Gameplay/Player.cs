@@ -1,17 +1,19 @@
-﻿namespace GizmoLab.Gameplay
+﻿using GizmoLab.Gameplay.Weapons;
+
+namespace GizmoLab.Gameplay
 {
     public class Player
     {
-        private Shotgun _shotgun;
+        private IWeapon _shotgun;
 
-        public Player()
+        public Player(IWeapon weapon)
         {
-            _shotgun = new Shotgun();
+            _shotgun = weapon;
         }
 
         public void ShootAt(Alien alien)
         {
-            alien.TakeDamage(_shotgun.Damage);
+            _shotgun.MakeDamage(alien);
         }
     }
 }

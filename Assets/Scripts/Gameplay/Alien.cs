@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GizmoLab.Gameplay.Armor;
+using UnityEngine;
 
 namespace GizmoLab.Gameplay
 {
@@ -6,20 +7,27 @@ namespace GizmoLab.Gameplay
     {
         private int Health = 100;
 
-        public bool Alive = true;
+        private bool _isAlive = true;
+
+        private IArmor _armor;
         
+        public Alien(IArmor armor)
+        {
+            _armor = armor;
+        }
+
         public void TakeDamage(int damage)
         {
-            if (!Alive)
+            if (!_isAlive)
             {
                 Debug.LogError("Can't damage alien. It's dead");
                 return;
             }
-            
-            Health -= damage;
-            Alive = Health > 0;
-            Debug.Log($"Alien took damage {damage}. Remaining health {Health}");
-            if (!Alive)
+            var damageToTake = _armor.AbsorbDamage(damage);
+            Health -= damageToTake;
+            _isAlive = Health > 0;
+            Debug.Log($"Alien took damage {damageToTake}. Remaining health {Health}");
+            if (!_isAlive)
             {
                 Debug.Log("Alien has died!!!");
             }
