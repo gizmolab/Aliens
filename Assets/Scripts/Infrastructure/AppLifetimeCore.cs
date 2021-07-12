@@ -1,5 +1,6 @@
 ﻿using GizmoLab.Gameplay;
 using UnityEngine;
+using Zenject;
 
 namespace GizmoLab.Infrastructure
 {
@@ -7,16 +8,12 @@ namespace GizmoLab.Infrastructure
     {
         #region Fields
 
+        [Inject]
         private AliensGameCore _gameCore;
         
         #endregion
         
         #region Methods
-
-        private void Awake()
-        {
-            _gameCore = new AliensGameCore();
-        }
 
         private void Update()
         {

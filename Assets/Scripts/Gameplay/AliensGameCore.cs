@@ -1,28 +1,24 @@
 ﻿using GizmoLab.Gameplay.Armor;
 using GizmoLab.Gameplay.Weapons;
 using UnityEngine;
+using Zenject;
 
 namespace GizmoLab.Gameplay
 {
     public class AliensGameCore
     {
+        [Inject]
         private Player _player;
 
+        [Inject]
         private Alien _alien;
 
+        [Inject]
         private IWeapon _currentWeapon;
 
+        [Inject]
         private IArmor _armor;
         
-        public AliensGameCore()
-        {
-            _currentWeapon = new SMG(20);
-            _player = new Player(_currentWeapon);
-
-            _armor = new LightArmor(2);
-            _alien = new Alien(_armor);
-        }
-
         public void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
