@@ -13,12 +13,6 @@ namespace GizmoLab.Gameplay
         [Inject]
         private Alien _alien;
 
-        [Inject]
-        private IWeapon _currentWeapon;
-
-        [Inject]
-        private IArmor _armor;
-        
         public void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))

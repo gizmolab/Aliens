@@ -1,15 +1,12 @@
 ﻿using GizmoLab.Gameplay.Weapons;
+using Zenject;
 
 namespace GizmoLab.Gameplay
 {
     public class Player
     {
+        [Inject]
         private IWeapon _shotgun;
-
-        public Player(IWeapon weapon)
-        {
-            _shotgun = weapon;
-        }
 
         public void ShootAt(Alien alien)
         {
@@ -17,3 +14,4 @@ namespace GizmoLab.Gameplay
         }
     }
 }
+

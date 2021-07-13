@@ -1,5 +1,6 @@
 ﻿using GizmoLab.Gameplay.Armor;
 using UnityEngine;
+using Zenject;
 
 namespace GizmoLab.Gameplay
 {
@@ -9,13 +10,9 @@ namespace GizmoLab.Gameplay
 
         private bool _isAlive = true;
 
+        [Inject]
         private IArmor _armor;
         
-        public Alien(IArmor armor)
-        {
-            _armor = armor;
-        }
-
         public void TakeDamage(int damage)
         {
             if (!_isAlive)
