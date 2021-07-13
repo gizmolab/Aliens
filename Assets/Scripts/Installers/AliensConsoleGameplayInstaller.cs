@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Installers
 {
-    public class AliensGameplayInstaller : MonoInstaller
+    public class AliensConsoleGameplayInstaller : MonoInstaller
     {
         public override void InstallBindings()
         {
